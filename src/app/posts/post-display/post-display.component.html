@@ -1,0 +1,9 @@
+<div class="display-window" (click)="onClose()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <img [src]="image" alt="Expanded Image" />
+    <h2 class="title" >{{ recipeName }}</h2>
+    <p class="name">{{ name }}</p>
+    <p class="recipe" > {{recipe}} </p>
+    <button class="close-button" (click)="onClose()">Close</button>
+  </div>
+</div>

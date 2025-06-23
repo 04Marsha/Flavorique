@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="login">Login</div>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onLogin(loginForm)" *ngIf="!isLoading" #loginForm="ngForm">
+    <div class="credentials">
+      <div class="input-field">
+        <div class="input">E-mail:</div>
+        <input
+          name="email"
+          ngModel
+          type="email"
+          placeholder="E-mail"
+          #emailInput="ngModel"
+          required
+          email
+        />
+        <div
+          class="error"
+          *ngIf="
+            emailInput?.invalid && (emailInput?.dirty || emailInput?.touched)
+          "
+        >
+          <span *ngIf="emailInput?.errors?.['required']"
+            >Email is required.</span
+          >
+          <span *ngIf="emailInput?.errors?.['email']"
+            >Invalid email format.</span
+          >
+        </div>
+      </div>
+      <div class="password-field">
+        <div class="password">Password:</div>
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          ngModel
+          #passwordInput="ngModel"
+          required
+        />
+        <div
+          class="error"
+          *ngIf="
+            passwordInput?.invalid &&
+            (passwordInput?.dirty || passwordInput?.touched)
+          "
+        >
+          <span *ngIf="passwordInput?.errors?.['required']"
+            >Password is required.</span
+          >
+          <span *ngIf="passwordInput?.errors?.['email']"
+            >Invalid password.</span
+          >
+        </div>
+      </div>
+      <button type="submit" class="submit" *ngIf="!isLoading">Login</button>
+    </div>
+  </form>
+</div>

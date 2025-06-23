@@ -1,0 +1,59 @@
+.dialog {
+  background-color: #2f1451;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #e4d6f7;
+  font-family: "Leckerli One";
+  font-size: 25px;
+  width: 500px;
+  height: 500px;
+  border: 2px solid #e4e49c;
+  border-radius: 20px;
+}
+
+
+h1,
+p {
+  width: 500px;
+  text-align: center;
+  font-weight: 400;
+}
+
+button {
+  background-color: #e4d6f7;
+  color: #2f1451;
+  font-family: "Leckerli One";
+  font-size: 25px;
+  margin-top: 50px;
+  height: 50px;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  font-size: 28px;
+  color: #e4d6f7;
+  background-color: #2f1451;
+}
+
+@media (max-width: 600px) {
+
+  .dialog, h1, p {
+    background-color: #161215;
+    border: none;
+  }
+
+  .dialog,
+  h1,
+  p {
+    width: 90% !important;
+    font-size: 20px !important;
+  }
+  button:hover {
+    font-size: 22px !important;
+  }
+}

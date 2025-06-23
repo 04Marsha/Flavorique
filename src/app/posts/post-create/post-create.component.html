@@ -1,0 +1,51 @@
+<div class="upload-window">
+  <div class="spinner" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
+    <div class="topic">
+      <h2>Upload Recipe</h2>
+    </div>
+    <div class="input-recipe-name">
+      <h2>Recipe Name:</h2>
+      <input
+        type="text"
+        name="recipeName"
+        formControlName="recipeName"
+        required
+      />
+    </div>
+    <div class="input-name">
+      <h2>Your name:</h2>
+      <input
+        type="text"
+        name="yourName"
+        formControlName="yourName"
+        minlength="3"
+      />
+    </div>
+    <div class="input-image">
+      <h2>Upload Image:</h2>
+      <button id="input-file" type="button" (click)="filePicker.click()">
+        Pick Image
+      </button>
+      <input type="file" #filePicker (change)="onImagePicked($event)" />
+    </div>
+    <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview">
+      <img [src]="imagePreview" [alt]="form.value.recipeName" />
+    </div>
+    <div class="input-recipe">
+      <h2>Recipe:</h2>
+      <textarea
+        rows="10"
+        placeholder="Share your recipe here..."
+        formControlName="recipe"
+        name="recipe"
+      ></textarea>
+    </div>
+    <div class="buttons">
+      <button id="back" type="button" routerLink="/">Back</button>
+      <button id="submit" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

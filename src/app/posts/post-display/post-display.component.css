@@ -1,0 +1,174 @@
+.display-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #f7e6ff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 1000px;
+  height: 800px;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: scaleUp 0.3s ease;
+}
+
+.modal-content img {
+  height: 370px;
+  width: 370px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.title {
+  background-color: #f7e6ff;
+  color: #2f1451;
+  font-family: Glegoo;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.name {
+  background-color: #f7e6ff;
+  color: #2f1451;
+  font-family: Glegoo;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.recipe {
+  background-color: #f7e6ff;
+  color: #2f1451;
+  font-family: Glegoo;
+  font-size: 30px;
+}
+
+.close-button {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #2f1451;
+  color: #f7e6ff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Leckerli One";
+  height: 50px;
+  width: 100px;
+}
+
+.close-button:hover {
+  font-size: 28px;
+  height: 53px;
+  width: 103px;
+  color: #2f1451;
+  background-color: #f7e6ff;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* For tablets and small desktops */
+@media screen and (max-width: 1024px) {
+  .modal-content {
+    width: 90%;
+    height: 90%;
+    padding: 30px 20px;
+  }
+
+  .modal-content img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .title {
+    font-size: 35px;
+  }
+
+  .name, .recipe {
+    font-size: 26px;
+  }
+
+  .close-button {
+    font-size: 22px;
+    width: 90px;
+    height: 45px;
+  }
+}
+
+/* For mobile screens (phones, ≤ 600px) */
+@media screen and (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    height: auto;
+    max-height: 90vh;
+    padding: 20px 15px;
+  }
+
+  .modal-content img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .name, .recipe {
+    font-size: 22px;
+  }
+
+  .close-button {
+    font-size: 20px;
+    width: 80px;
+    height: 40px;
+  }
+}
+
+/* For large desktops (≥ 1440px) */
+@media screen and (min-width: 1440px) {
+  .modal-content {
+    width: 900px;
+    height: 750px;
+    padding: 40px 60px;
+  }
+
+  .modal-content img {
+    width: 370px;
+    height: 370px;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .name, .recipe {
+    font-size: 32px;
+  }
+
+  .close-button {
+    font-size: 26px;
+    width: 110px;
+    height: 55px;
+  }
+}

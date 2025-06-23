@@ -1,0 +1,196 @@
+.heading {
+  display: flex;
+  align-items: center;
+  margin-top: 150px;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  font-family: "Leckerli One";
+  color: #e4d6f7;
+  font-size: 45px;
+  font-weight: 400;
+  width: 650px;
+}
+
+.add-button {
+  background-color: #e4d6f7;
+  color: #2f1451;
+  font-size: 33px;
+  font-family: "Leckerli One";
+  height: 60px;
+  width: 280px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #2f1451;
+  color: #e4d6f7;
+  font-size: 36px;
+}
+
+.card-container {
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-left: 150px;
+  background-color: #2f1451;
+}
+
+#empty {
+  font-family: "Leckerli One";
+  font-size: 35px;
+  color: #e4d6f7;
+  margin-top: 300px;
+  margin-left: 120px;
+}
+
+.recipe-card {
+  margin-top: 100px;
+  background-color: #e4d6f7;
+  height: 480px;
+  width: 370px;
+  border-radius: 30px;
+  color: #2f1451;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-card h2,
+h3 {
+  background-color: #e4d6f7;
+  color: #2f1451;
+  height: 40px;
+  width: 300px;
+  text-align: center;
+}
+
+.recipe-card h2 {
+  font-family: Glegoo;
+  font-weight: 800;
+  font-size: 30px;
+}
+
+.recipe-card h3 {
+  margin-top: 10px;
+  font-family: Glegoo;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.buttons {
+  background-color: #e4d6f7;
+  height: 40px;
+  width: 340px;
+  display: flex;
+}
+
+#edit-button,
+#delete-button {
+  background-color: #2f1451;
+  color: #e4d6f7;
+  font-family: "Leckerli One";
+  height: 35px;
+  width: 85px;
+  font-size: 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#edit-button {
+  margin-right: 110px;
+  margin-left: 30px;
+}
+
+#edit-button:hover {
+  font-size: 23px;
+}
+
+#delete-button:hover {
+  font-size: 23px;
+  background-color: rgb(168, 43, 43);
+}
+
+.spinner {
+  margin-top: 250px;
+}
+
+mat-spinner {
+  margin: 130px auto;
+}
+
+.image {
+  height: 280px;
+  background-color: #e4d6f7;
+  width: 300px;
+  border-radius: 30px;
+  color: #2f1451;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .heading {
+    margin-top: 50px;
+    padding: 0 10px;
+    flex-direction: column;
+  }
+
+  .heading h1 {
+    margin-bottom: 30px;
+  }
+
+  .add-button {
+    width: 90%;
+    font-size: 24px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 50px 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+
+  .recipe-card {
+    max-width: 370px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-container {
+    display: grid;
+    grid-template-columns: 1fr;        /* One card per row */
+    place-items: center;               /* ✅ Centers cards horizontally */
+    padding: 40px 10px;                /* Smaller padding */
+  }
+
+  .recipe-card {
+    width: 100%;
+    max-width: 320px;                  /* ✅ Responsive max width */
+    margin: 10px 0;
+  }
+
+  .buttons {
+    width: 280px;
+  }
+}

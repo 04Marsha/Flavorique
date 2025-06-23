@@ -1,0 +1,184 @@
+.login {
+    background-color: #e4d6f7; 
+    font-family: "Leckerli One";
+    font-size: 45px;
+    font-weight: 400;
+    color: #2f1451;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    height: 70px;
+    width: 200px;
+    margin-left: 210px;
+    margin-top: 20px;
+    padding-top: 80px;
+}
+
+.card {
+    background-color: #e4d6f7;
+    height: 500px;
+    width: 650px;
+    margin: 200px 600px;
+    padding-left: 50px;
+    border-radius: 30px;
+}
+
+.credentials {
+    background-color: #e4d6f7;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    background-color: #e4d6f7;
+}
+
+.input-field, .password-field {
+    background-color: #e4d6f7;
+    display: inline-flex;
+    padding-top: 30px;
+}
+
+.input, .password {
+    background-color: #e4d6f7;
+    color: #2f1451;
+    font-weight: 400;
+    height: 35px;
+    width: 120px;
+    font-size: 30px;
+    font-family: "Leckerli One";
+    padding-right: 50px;
+}
+
+.submit {
+    margin-top: 50px;
+    margin-left: 260px;
+    border: none;
+    border-radius: 20px;
+    font-family: "Leckerli One";
+    color: #e4d6f7;
+    font-size: 25px;
+    height: 55px;
+    width: 120px;
+}
+
+.submit:hover {
+    height: 57px;
+    width: 125px;
+    color: #2f1451;
+    background-color: #e4d6f7;
+    cursor: pointer;
+    font-size: 28px;
+}
+
+.input-field > input, .password-field > input {
+    height: 45px;
+    width: 350px;
+    border: none;
+    border-radius: 10px;
+    color: #e4d6f7;
+    font-family: "Glegoo";
+    font-size: 18px;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.error, .error span {
+    background-color: #e4d6f7;
+    color: rgb(195, 47, 47);
+    text-align: center;
+}
+
+mat-spinner {
+    margin-left: 260px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 90%;
+    margin: 100px auto;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login {
+    margin: 10px auto 0;
+    font-size: 36px;
+    padding-top: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .credentials {
+    align-items: center;
+    width: 100%;
+  }
+
+  .input-field,
+  .password-field {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .input,
+  .password {
+    font-size: 24px;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .input-field input,
+  .password-field input {
+    width: 90%;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .submit {
+    margin: 40px auto 0;
+    display: block;
+    font-size: 22px;
+    width: 120px;
+    height: 50px;
+  }
+
+  mat-spinner {
+    margin: 20px auto;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    width: 95%;
+    padding: 20px 10px;
+  }
+
+  .login {
+    font-size: 28px;
+  }
+
+  .input,
+  .password {
+    font-size: 20px;
+  }
+
+  .input-field input,
+  .password-field input {
+    font-size: 14px;
+  }
+
+  .submit {
+    font-size: 20px;
+    width: 100px;
+    height: 45px;
+  }
+}

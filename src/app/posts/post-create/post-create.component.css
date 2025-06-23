@@ -1,0 +1,446 @@
+
+.upload-window {
+  background-color: #e4d6f7;
+  width: 900px;
+  border-radius: 20px;
+  margin: 180px 450px;
+  padding: 50px 70px;
+  font-family: "Leckerli One";
+  color: #2f1451;
+}
+
+.topic {
+  background-color: #e4d6f7;
+  display: flex;
+}
+
+.topic h2 {
+  font-weight: 400;
+  font-size: 50px;
+  background-color: #e4d6f7;
+  margin-right: 450px;
+  margin-bottom: 40px;
+}
+
+.buttons {
+  background-color: #e4d6f7;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons button {
+  background-color: #2f1451;
+  color: #e4d6f7;
+  font-family: "Leckerli One";
+  height: 60px;
+  width: 130px;
+  font-size: 25px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons #back {
+  margin-right: 140px;
+}
+
+.buttons button:hover {
+  font-size: 30px;
+}
+
+.input-recipe-name,
+.input-name,
+.input-image,
+.input-recipe {
+  background-color: #e4d6f7;
+  color: #2f1451;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.input-recipe-name h2 {
+  background-color: #e4d6f7;
+  font-size: 30px;
+  font-weight: 400;
+  margin-right: 155px;
+}
+
+.input-recipe-name input {
+  border: none;
+  border-radius: 20px;
+  color: #e4d6f7;
+  font-family: "Leckerli One";
+  font-size: 25px;
+  text-align: center;
+  height: 50px;
+  width: 550px;
+}
+
+.input-name h2 {
+  background-color: #e4d6f7;
+  font-size: 30px;
+  font-weight: 400;
+  margin-right: 175px;
+}
+
+.input-name input {
+  border-radius: 20px;
+  color: #e4d6f7;
+  font-family: "Leckerli One";
+  font-size: 25px;
+  text-align: center;
+  height: 50px;
+  width: 550px;
+  border: none;
+}
+
+.input-image h2 {
+  background-color: #e4d6f7;
+  font-size: 30px;
+  font-weight: 400;
+  margin-right: 130px;
+}
+
+.input-image input[type="file"] {
+  visibility: hidden;
+}
+
+.image-preview {
+  background-color: #e4d6f7;
+  height: 350px;
+  width: 550px;
+}
+
+.image-preview img {
+  height: 100%;
+  border-radius: 20px;
+}
+
+#input-file {
+  border-radius: 20px;
+  color: #e4d6f7;
+  font-family: "Leckerli One";
+  font-size: 25px;
+  height: 50px;
+  width: 300px;
+  border: none;
+  cursor: pointer;
+}
+
+#input-file:hover {
+  font-size: 28px;
+}
+
+.input-recipe {
+  margin-top: 30px;
+}
+
+.input-recipe h2 {
+  background-color: #e4d6f7;
+  font-size: 30px;
+  font-weight: 400;
+  margin-right: 240px;
+}
+
+.input-recipe textarea {
+  border-radius: 20px;
+  color: #e4d6f7;
+  font-family: "Leckerli One";
+  font-size: 25px;
+  text-align: center;
+  width: 535px;
+  border: none;
+  padding: 10px;
+}
+
+.input-recipe textarea::placeholder {
+  color: #e4d6f7;
+  font-weight: 500;
+}
+
+form {
+  background-color: #e4d6f7;
+}
+
+mat-spinner {
+  margin: 130px auto;
+  color: #2f1451;
+}
+
+.spinner {
+  margin-top: 250px;
+  background-color: #e4d6f7;
+  color: #2f1451;
+}
+
+
+@media screen and (min-width: 1280px) {
+  .upload-window {
+    width: 60%;
+    max-width: 1000px;
+    margin: 150px auto;
+    padding: 60px 80px;
+  }
+
+  .topic h2 {
+    font-size: 55px;
+    margin-bottom: 50px;
+    margin-right: auto;
+  }
+
+  .buttons {
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .buttons button {
+    width: 180px;
+    height: 55px;
+    font-size: 22px;
+  }
+
+  .input-recipe-name input,
+  .input-name input,
+  .input-recipe textarea,
+  #input-file,
+  .image-preview {
+    max-width: 600px;
+  }
+
+  .input-recipe textarea {
+    height: 150px;
+  }
+
+  .image-preview {
+    height: 400px;
+  }
+
+  #input-file {
+    font-size: 22px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .upload-window {
+    margin: 150px auto;
+  }
+
+  .topic {
+    margin-bottom: 50px;
+  }
+
+  .buttons {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .upload-window {
+    margin: 180px auto;
+  }
+
+  .buttons {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .upload-window {
+    width: 50%;
+    padding: 70px 100px;
+  }
+
+  .topic h2 {
+    font-size: 60px;
+  }
+
+  .buttons button {
+    width: 200px;
+    height: 60px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .upload-window {
+    width: 95%;
+    padding: 20px 15px;
+    margin: 60px auto;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .buttons button {
+    width: 90%;
+    max-width: 240px;
+    height: 48px;
+    font-size: 18px;
+  }
+
+  .input-recipe-name,
+  .input-name,
+  .input-image,
+  .input-recipe {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-recipe-name h2,
+  .input-name h2,
+  .input-image h2,
+  .input-recipe h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .input-recipe-name input,
+  .input-name input {
+    width: 100%;
+    font-size: 18px;
+    height: 42px;
+  }
+
+  .input-recipe textarea {
+    width: 100%;
+    font-size: 18px;
+    height: 120px;
+  }
+
+  #input-file {
+    width: 100%;
+    font-size: 18px;
+    height: 45px;
+  }
+
+  .image-preview {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .upload-window {
+    width: 100%;
+    padding: 15px 10px;
+    margin: 40px auto;
+  }
+
+  .topic h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .buttons button {
+    width: 100%;
+    max-width: 220px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .input-recipe-name h2,
+  .input-name h2,
+  .input-image h2,
+  .input-recipe h2 {
+    font-size: 18px;
+  }
+
+  .input-recipe-name input,
+  .input-name input {
+    font-size: 16px;
+    height: 38px;
+  }
+
+  .input-recipe textarea {
+    font-size: 16px;
+    height: 100px;
+  }
+
+  #input-file {
+    font-size: 16px;
+    height: 40px;
+  }
+}
+
+
+@media screen and (max-width: 430px) {
+  .upload-window {
+    width: 90%;
+    padding: 15px 10px;
+    margin: 40px auto;
+  }
+
+  .topic h2 {
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto 20px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .buttons button {
+    margin: 0 auto;
+  }
+
+  .buttons #back {
+    margin-right: 78px;
+  }
+
+  .input-recipe-name,
+  .input-name,
+  .input-image,
+  .input-recipe {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-recipe-name h2,
+  .input-name h2,
+  .input-image h2,
+  .input-recipe h2 {
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+
+  .input-recipe-name input,
+  .input-name input {
+    width: 100%;
+    height: 36px;
+    font-size: 15px;
+  }
+
+  .input-recipe textarea {
+    width: 96%;
+    height: 90px;
+    font-size: 15px;
+  }
+
+  #input-file {
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .image-preview {
+    width: 100%;
+    height: 250px;
+  }
+
+  .image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

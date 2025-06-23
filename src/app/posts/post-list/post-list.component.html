@@ -1,0 +1,31 @@
+<div class="spinner" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="heading">
+  <h1>Explore Recipes</h1>
+  <button routerLink="/create" class="add-button" *ngIf="userIsAuthenticated">
+    Add your own..
+  </button>
+</div>
+<div class="card-container" *ngIf="posts.length > 0 && !isLoading">
+  <div class="recipe-card" *ngFor="let post of posts">
+    <img class="image" [src]="post.imagePath" [alt]="post.recipeName" (click)="onImageClicked(post.id)" />
+    <h2>{{ post.recipeName }}</h2>
+    <h3>{{ post.yourName }}</h3>
+    <div class="buttons" *ngIf="userIsAuthenticated && userId == post.creator">
+      <button id="edit-button" [routerLink]="['/edit', post.id]">Edit</button>
+      <button id="delete-button" (click)="onDelete(post.id)">Delete</button>
+    </div>
+  </div>
+</div>
+<p routerLink="/" id="empty" *ngIf="posts.length <= 0 && !isLoading">
+  No Recipes to display..
+</p>
+<app-post-display
+  *ngIf="selectedPost"
+  [image]="selectedPost.imagePath"
+  [recipeName]="selectedPost.recipeName"
+  [name]="selectedPost.yourName"
+  [recipe]="selectedPost.recipe"
+  (close)="closeDisplay()"
+></app-post-display>

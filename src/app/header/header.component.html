@@ -1,0 +1,13 @@
+<div class= "toolbar">
+  <div class="flavorique">
+    <img src="Flavorique.ico" alt="Flavorique" />
+    <h1 routerLink="/">Flavorique</h1>
+  </div>
+  <button class="signup" routerLink="/auth/signup" *ngIf="!userIsAuthenticated">
+    Sign Up
+  </button>
+  <button class="login" routerLink="/auth/login" *ngIf="!userIsAuthenticated">
+    Login
+  </button>
+  <button *ngIf="userIsAuthenticated" (click)="onLogout()" class="login">Logout</button>
+</div>
