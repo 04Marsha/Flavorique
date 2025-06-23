@@ -106,7 +106,4 @@ export class PostsService {
     });
   }
 
-  hello() {
-    console.log("hello");
-  }
 }
