@@ -1,4 +1,3 @@
-//password = Flavourique
 import { Injectable } from '@angular/core';
 import { map, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
