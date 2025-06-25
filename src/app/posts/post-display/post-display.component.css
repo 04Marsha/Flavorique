@@ -86,8 +86,6 @@
   }
 }
 
-
-/* For tablets and small desktops */
 @media screen and (max-width: 1024px) {
   .modal-content {
     width: 90%;
@@ -115,7 +113,6 @@
   }
 }
 
-/* For mobile screens (phones, ≤ 600px) */
 @media screen and (max-width: 600px) {
   .modal-content {
     width: 95%;
@@ -145,7 +142,6 @@
   }
 }
 
-/* For large desktops (≥ 1440px) */
 @media screen and (min-width: 1440px) {
   .modal-content {
     width: 900px;
