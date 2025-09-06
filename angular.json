@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/flavorique/browser",
+            "outputPath": "dist/flavorique",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
