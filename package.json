@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start:server": "nodemon ./backend/server.js"
+    "start:server": "node ./backend/server.js",
+    "dev:server": "nodemon ./backend/server.js"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,7 @@
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
+    "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.15.0",

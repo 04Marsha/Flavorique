@@ -5,15 +5,13 @@ const mongoose = require("mongoose");
 const postsRoutes = require("./routes/posts");
 const userRoutes = require("./routes/user");
 const path = require("path");
+const dotenv = require("dotenv");
 
+dotenv.config();
 const app = express();
 
 mongoose
-  .connect(
-    "mongodb+srv://Marsha:Flavourique@" +
-      process.env.MONGO_ATLAS_PW +
-      ".ztzftbl.mongodb.net/?retryWrites=true&w=majority&appName=Flavorique"
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Connected to database!");
   })
