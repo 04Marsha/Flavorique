@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-h1 {
+.heading h1 {
   font-family: "Leckerli One";
   color: #e4d6f7;
   font-size: 45px;
@@ -33,11 +33,14 @@ h1 {
 }
 
 .card-container {
-  height: auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding-left: 150px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  padding: 0 20px;
+  justify-items: center;
   background-color: #2f1451;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #empty {
@@ -141,19 +144,61 @@ mat-spinner {
 
 @media screen and (max-width: 480px) {
   .heading {
+    flex-direction: column;
     margin-top: 50px;
     padding: 0 10px;
-    flex-direction: column;
+    gap: 15px;
   }
 
   .heading h1 {
-    margin-bottom: 30px;
+    font-size: 28px;
+    margin: 0;
   }
 
   .add-button {
-    width: 90%;
-    font-size: 24px;
-    height: 50px;
+    width: 80%;
+    font-size: 20px;
+    height: 45px;
+    padding: 0;
+  }
+
+  .card-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+    justify-items: center; 
+  }
+
+  .recipe-card {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 15px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  #edit-button, #delete-button {
+    width: 100%;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  #empty {
+    margin: 50px 0;
+    font-size: 28px;
   }
 }
 

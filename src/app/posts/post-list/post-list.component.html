@@ -4,7 +4,7 @@
 <div class="heading">
   <h1>Explore Recipes</h1>
   <button routerLink="/create" class="add-button" *ngIf="userIsAuthenticated">
-    Add your own..
+    + Add
   </button>
 </div>
 <div class="card-container" *ngIf="posts.length > 0 && !isLoading">
