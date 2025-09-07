@@ -9,7 +9,16 @@
 </div>
 <div class="card-container" *ngIf="posts.length > 0 && !isLoading">
   <div class="recipe-card" *ngFor="let post of posts">
-    <img class="image" [src]="post.imagePath" [alt]="post.recipeName" (click)="onImageClicked(post.id)" />
+    <img
+      class="image"
+      [src]="
+        post.imagePath.startsWith('http://')
+          ? post.imagePath.replace('http://', 'https://')
+          : post.imagePath
+      "
+      [alt]="post.recipeName"
+      (click)="onImageClicked(post.id)"
+    />
     <h2>{{ post.recipeName }}</h2>
     <h3>{{ post.yourName }}</h3>
     <div class="buttons" *ngIf="userIsAuthenticated && userId == post.creator">
