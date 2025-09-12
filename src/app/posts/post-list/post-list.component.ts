@@ -71,4 +71,11 @@ export class PostListComponent implements OnInit, OnDestroy {
     this.postsSub.unsubscribe();
     this.authStatusSub.unsubscribe();
   }
+
+  getSecureImagePath(path: string): string {
+    if (path.startsWith('http://')) {
+      return path.replace('http://', 'https://');
+    }
+    return path;
+  }
 }
