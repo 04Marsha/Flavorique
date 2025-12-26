@@ -1,13 +1,13 @@
 // Holds the express app
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const postsRoutes = require("./routes/posts");
 const userRoutes = require("./routes/user");
 const path = require("path");
-const dotenv = require("dotenv");
 
-dotenv.config();
 const app = express();
 
 mongoose

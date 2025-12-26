@@ -1,6 +1,4 @@
-const fs = require("fs");
 const Post = require("../models/post");
-const cloudinary = require("../middleware/cloudinary");
 
 // exports.createPost = (req, res, next) => {
 //   const url = req.protocol + "://" + req.get("host");
@@ -113,33 +111,20 @@ const cloudinary = require("../middleware/cloudinary");
 // CREATE POST
 exports.createPost = async (req, res, next) => {
   try {
-    let imagePath = null;
-
-    if (req.file) {
-      // Upload temp file to Cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path, {
-        folder: "flavorique-posts", // any folder name you like
-      });
-
-      imagePath = result.secure_url; // HTTPS Cloudinary URL
-
-      // Delete temp file
-      fs.unlink(req.file.path, (err) => {
-        if (err) console.log("Temp file delete error:", err);
-      });
-    }
+    console.log("FILE: ", req.file);
+    const imagePath = req.file ? req.file.path : null;
 
     const post = new Post({
       recipeName: req.body.recipeName,
       yourName: req.body.yourName,
       recipe: req.body.recipe,
-      imagePath: imagePath,          // <-- Cloudinary URL
+      imagePath: imagePath,
       creator: req.userData.userId,
     });
 
     const createdPost = await post.save();
 
-    res.status(201).json({
+    return res.status(201).json({
       message: "Post Added Successfully",
       post: {
         ...createdPost._doc,
@@ -148,56 +133,39 @@ exports.createPost = async (req, res, next) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({
+    return res.status(500).json({
       message: "Creating a post failed!",
     });
   }
 };
 
 // UPDATE POST
-exports.updatePost = async (req, res, next) => {
+exports.updatePost = async (req, res) => {
   try {
-    let imagePath = req.body.imagePath; // existing URL from frontend
+    let imagePath = req.body.imagePath; // keep old image by default
 
-    // If a new file comes, upload new one to Cloudinary
     if (req.file) {
-      const result = await cloudinary.uploader.upload(req.file.path, {
-        folder: "flavorique-posts",
-      });
-
-      imagePath = result.secure_url;
-
-      fs.unlink(req.file.path, (err) => {
-        if (err) console.log("Temp file delete error:", err);
-      });
+      imagePath = req.file.path; // new Cloudinary URL
     }
-
-    const post = new Post({
-      _id: req.body.id,
-      recipeName: req.body.recipeName,
-      yourName: req.body.yourName,
-      recipe: req.body.recipe,
-      imagePath: imagePath,          // existing or new Cloudinary URL
-      creator: req.userData.userId,
-    });
 
     const result = await Post.updateOne(
       { _id: req.params.id, creator: req.userData.userId },
-      post
+      {
+        recipeName: req.body.recipeName,
+        yourName: req.body.yourName,
+        recipe: req.body.recipe,
+        imagePath: imagePath,
+      }
     );
 
     if (result.matchedCount > 0) {
-      res.status(200).json({
-        message: "Update successful",
-      });
+      return res.status(200).json({ message: "Update successful" });
     } else {
-      res.status(401).json({ message: "Not Authorized" });
+      return res.status(401).json({ message: "Not Authorized" });
     }
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      message: "Couldn't update post!",
-    });
+    console.error("UPDATE POST ERROR:", error);
+    return res.status(500).json({ message: "Couldn't update post!" });
   }
 };
 

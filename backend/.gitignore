@@ -1,0 +1,27 @@
+# Node dependencies
+node_modules/
+
+# Environment variables (VERY IMPORTANT)
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs
+*.log
+
+# Build outputs (if any)
+dist/
+build/
+
+# Temporary upload folders used by multer
+tmp/
+uploads/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+
+# Angular frontend build (only if backend repo contains frontend build folder)
+frontend/dist/

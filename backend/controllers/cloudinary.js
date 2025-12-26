@@ -1,30 +1,30 @@
-const fs = require("fs");
-const cloudinary = require("../middleware/cloudinary");
+const Post = require("../models/post");
 
 exports.createRecipe = async (req, res) => {
   try {
-    let imageUrl = null;
+    console.log("FILE:", req.file);
 
-    if (req.file) {
-      const result = await cloudinary.uploader.upload(req.file.path, {
-        folder: "flavorique",
-      });
+    const imagePath = req.file ? req.file.path : null;
 
-      imageUrl = result.secure_url;
-
-      fs.unlinkSync(req.file.path);
-    }
-
-    const recipe = new Recipe({
-      title: req.body.title,
-      description: req.body.description,
-      image: imageUrl,
+    const post = new Post({
+      recipeName: req.body.title, // map title → recipeName
+      yourName: req.body.yourName || "", // optional
+      recipe: req.body.description, // map description → recipe
+      imagePath: imagePath, // Cloudinary URL
+      creator: req.userData?.userId, // if auth exists
     });
 
-    await recipe.save();
-    res.status(201).json(recipe);
+    const createdPost = await post.save();
+
+    return res.status(201).json({
+      message: "Recipe created using Post schema",
+      post: {
+        ...createdPost._doc,
+        id: createdPost._id,
+      },
+    });
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Error creating recipe" });
+    console.error("CREATE RECIPE ERROR:", err);
+    return res.status(500).json({ message: "Error creating recipe" });
   }
 };

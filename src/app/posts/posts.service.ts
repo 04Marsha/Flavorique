@@ -104,5 +104,4 @@ export class PostsService {
       this.postsUpdated.next([...this.posts]);
     });
   }
-
 }
