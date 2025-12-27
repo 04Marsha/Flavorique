@@ -1,7 +1,7 @@
 <div class="spinner" *ngIf="isLoading">
-  <mat-spinner></mat-spinner>
+  <app-spinner />
 </div>
-<div class="heading">
+<div class="heading" *ngIf="!isLoading" >
   <h1>Explore Recipes</h1>
   <button routerLink="/create" class="add-button" *ngIf="userIsAuthenticated">
     + Add

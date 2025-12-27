@@ -1,96 +1,109 @@
 .heading {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 150px;
-  text-align: center;
-  width: 100%;
+  margin: 120px auto 60px;
+  padding: 0 60px;
+  max-width: 1400px;
 }
 
 .heading h1 {
   font-family: "Leckerli One";
   color: #e4d6f7;
-  font-size: 45px;
+  font-size: 48px;
   font-weight: 400;
-  width: 650px;
 }
 
 .add-button {
   background-color: #e4d6f7;
   color: #2f1451;
-  font-size: 33px;
+  font-size: 28px;
   font-family: "Leckerli One";
-  height: 60px;
-  width: 280px;
+  height: 55px;
+  width: 180px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .add-button:hover {
   background-color: #2f1451;
   color: #e4d6f7;
-  font-size: 36px;
+  transform: scale(1.05);
 }
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  padding: 0 20px;
-  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px 100px;
   background-color: #2f1451;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 #empty {
   font-family: "Leckerli One";
-  font-size: 35px;
+  font-size: 32px;
   color: #e4d6f7;
-  margin-top: 300px;
-  margin-left: 120px;
+  text-align: center;
+  margin: 150px auto;
 }
 
 .recipe-card {
-  margin-top: 100px;
   background-color: #e4d6f7;
-  height: 480px;
-  width: 370px;
-  border-radius: 30px;
   color: #2f1451;
+  border-radius: 22px;
+  padding: 16px 16px 18px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 25px;
+  cursor: pointer;
 }
 
 .recipe-card h2,
 h3 {
   background-color: #e4d6f7;
   color: #2f1451;
-  height: 40px;
-  width: 300px;
-  text-align: center;
 }
 
 .recipe-card h2 {
   font-family: Glegoo;
-  font-weight: 800;
-  font-size: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
 }
 
 .recipe-card h3 {
-  margin-top: 10px;
   font-family: Glegoo;
+  font-size: 22px;
   font-weight: 400;
-  font-size: 25px;
+  text-align: center;
+  opacity: 0.85;
 }
 
 .buttons {
-  background-color: #e4d6f7;
-  height: 40px;
-  width: 340px;
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #e4d6f7;
+  margin-top: 12px;
 }
 
 #edit-button,
@@ -98,144 +111,120 @@ h3 {
   background-color: #2f1451;
   color: #e4d6f7;
   font-family: "Leckerli One";
-  height: 35px;
-  width: 85px;
-  font-size: 20px;
+  height: 40px;
+  width: 45%;
+  font-size: 18px;
   border-radius: 20px;
   border: none;
   cursor: pointer;
-  margin-top: 10px;
-}
-
-#edit-button {
-  margin-right: 110px;
-  margin-left: 30px;
+  transition: all 0.3s ease;
 }
 
 #edit-button:hover {
-  font-size: 23px;
+  transform: scale(1.08);
 }
 
 #delete-button:hover {
-  font-size: 23px;
   background-color: rgb(168, 43, 43);
+  transform: scale(1.08);
 }
 
-.spinner {
-  margin-top: 250px;
-}
-
-mat-spinner {
-  margin: 130px auto;
-}
-
-.image {
-  height: 280px;
-  background-color: #e4d6f7;
-  width: 300px;
-  border-radius: 30px;
-  color: #2f1451;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 480px) {
-  .heading {
-    flex-direction: column;
-    margin-top: 50px;
-    padding: 0 10px;
-    gap: 15px;
-  }
-
-  .heading h1 {
-    font-size: 28px;
-    margin: 0;
-  }
-
-  .add-button {
-    width: 80%;
-    font-size: 20px;
-    height: 45px;
-    padding: 0;
-  }
-
+@media (max-width: 1300px) {
   .card-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 0 10px;
-    justify-items: center; 
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+    padding-left: 24px;
+    padding-right: 24px;
+    justify-items: center;
   }
 
   .recipe-card {
     width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    padding: 15px;
+    max-width: 360px;
   }
 
-  .buttons {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
+  .heading {
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-top: 80px;
   }
 
-  #edit-button, #delete-button {
+  .heading h1 {
+    font-size: 36px;
+  }
+
+  .image {
+    height: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    grid-template-columns: 1fr;
+    padding-left: 16px;
+    padding-right: 16px;
+    justify-items: center;
+  }
+
+  .recipe-card {
     width: 100%;
-    font-size: 16px;
+    max-width: 300px;
+    padding: 12px;
+    border-radius: 18px;
     margin: 0;
   }
 
   .image {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
-    margin-bottom: 10px;
+    height: 230px;
   }
 
-  #empty {
-    margin: 50px 0;
+  .heading {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 40px;
+    padding: 0 16px;
+    text-align: center;
+  }
+
+  .heading h1 {
     font-size: 28px;
   }
-}
 
-@media screen and (max-width: 1200px) {
-  .card-container {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 50px 40px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .card-container {
-    grid-template-columns: 1fr;
-    place-items: center;
-  }
-
-  .recipe-card {
-    max-width: 370px;
+  .add-button {
     width: 100%;
+    max-width: 240px;
+    height: 44px;
+    font-size: 20px;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .card-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    place-items: center;
-    padding: 40px 10px;
+@media (max-width: 480px) {
+  .heading h1 {
+    font-size: 24px;
+    line-height: 1.2;
   }
 
-  .recipe-card {
-    width: 100%;
-    max-width: 320px;
-    margin: 10px 0;
+  .image {
+    height: 280px;
   }
 
-  .buttons {
-    width: 280px;
+  .recipe-card h2 {
+    margin-top: 6px;
+    font-size: 22px;
+  }
+
+  .recipe-card h3 {
+    margin-top: 2px;
+    font-size: 16px;
+  }
+}
+
+@media (hover: none) {
+  .recipe-card:hover,
+  .image:hover,
+  #edit-button:hover,
+  #delete-button:hover {
+    transform: none;
+    box-shadow: none;
   }
 }

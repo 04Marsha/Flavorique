@@ -1,6 +1,6 @@
+<app-spinner *ngIf="isLoading" />
 <div class="card">
   <div class="login">Login</div>
-  <mat-spinner *ngIf="isLoading"></mat-spinner>
   <form (submit)="onLogin(loginForm)" *ngIf="!isLoading" #loginForm="ngForm">
     <div class="credentials">
       <div class="input-field">

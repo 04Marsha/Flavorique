@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { PostListComponent } from './post-list/post-list.component';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { PostDisplayComponent } from './post-display/post-display.component';
+import { UtilityModule } from '../utility/utility.module';
 
 @NgModule({
   declarations: [PostListComponent, PostCreateComponent, PostDisplayComponent],
@@ -15,6 +16,7 @@ import { PostDisplayComponent } from './post-display/post-display.component';
     RouterModule,
     ReactiveFormsModule,
     AngularMaterialModule,
+    UtilityModule,
   ],
 })
 export class PostsModule {}

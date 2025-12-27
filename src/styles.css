@@ -1,5 +1,7 @@
-* {
+html,
+body {
   margin: 0;
   padding: 0;
   background-color: #2f1451;
+  overflow-x: hidden;
 }

@@ -2,16 +2,14 @@ const Post = require("../models/post");
 
 exports.createRecipe = async (req, res) => {
   try {
-    console.log("FILE:", req.file);
-
     const imagePath = req.file ? req.file.path : null;
 
     const post = new Post({
-      recipeName: req.body.title, // map title → recipeName
-      yourName: req.body.yourName || "", // optional
-      recipe: req.body.description, // map description → recipe
-      imagePath: imagePath, // Cloudinary URL
-      creator: req.userData?.userId, // if auth exists
+      recipeName: req.body.title,
+      yourName: req.body.yourName || "",
+      recipe: req.body.description,
+      imagePath: imagePath,
+      creator: req.userData?.userId,
     });
 
     const createdPost = await post.save();

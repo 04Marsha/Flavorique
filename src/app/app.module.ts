@@ -11,13 +11,10 @@ import { ErrorInterceptor } from './error-interceptor';
 import { ErrorComponent } from './error/error.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { PostsModule } from './posts/posts.module';
+import { UtilityModule } from './utility/utility.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    ErrorComponent,
-  ],
+  declarations: [AppComponent, HeaderComponent, ErrorComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +22,7 @@ import { PostsModule } from './posts/posts.module';
     HttpClientModule,
     AngularMaterialModule,
     PostsModule,
+    UtilityModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
