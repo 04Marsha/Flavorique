@@ -1,4 +1,8 @@
-<footer class="footer">
+<div class="spinner" *ngIf="isLoading">
+  <app-spinner />
+</div>
+
+<footer class="footer" *ngIf="!isLoading">
   <div class="footer-content layout-container">
     <div class="footer-brand">
       <div class="brand-title">
