@@ -1,12 +1,14 @@
 <div class="spinner" *ngIf="isLoading">
   <app-spinner />
 </div>
-<div class="heading" *ngIf="!isLoading" >
+
+<div class="heading" *ngIf="!isLoading">
   <h1>Explore Recipes</h1>
   <button routerLink="/create" class="add-button" *ngIf="userIsAuthenticated">
     + Add
   </button>
 </div>
+
 <div class="card-container" *ngIf="posts.length > 0 && !isLoading">
   <div class="recipe-card" *ngFor="let post of posts">
     <img
@@ -23,6 +25,15 @@
     </div>
   </div>
 </div>
+
+<div class="paginator" *ngIf="!isLoading">
+  <app-paginator
+    [totalPosts]="totalPosts"
+    [postsPerPage]="postsPerPage"
+    [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)"></app-paginator>
+</div>
+
 <p routerLink="/" id="empty" *ngIf="posts.length <= 0 && !isLoading">
   No Recipes to display..
 </p>

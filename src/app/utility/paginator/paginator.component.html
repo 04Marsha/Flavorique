@@ -1,0 +1,25 @@
+<ul class="pagination">
+  <li>
+    <a
+      id="img-bg"
+      (click)="onPageChange(currentPage - 1)"
+      *ngIf="currentPage !== 1"
+      ><img src="icons/left.png" alt="left"
+    /></a>
+  </li>
+
+  <li *ngFor="let page of pages">
+    <a [class.active]="page === currentPage" (click)="onPageChange(page)">
+      {{ page }}
+    </a>
+  </li>
+
+  <li>
+    <a
+      id="img-bg"
+      (click)="onPageChange(currentPage + 1)"
+      *ngIf="currentPage !== pages.length"
+      ><img src="icons/right.png" alt="right"
+    /></a>
+  </li>
+</ul>

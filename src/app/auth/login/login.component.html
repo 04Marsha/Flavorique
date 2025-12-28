@@ -1,5 +1,5 @@
 <app-spinner *ngIf="isLoading" />
-<div class="card">
+<div class="card" *ngIf="!isLoading">
   <div class="login">Login</div>
   <form (submit)="onLogin(loginForm)" *ngIf="!isLoading" #loginForm="ngForm">
     <div class="credentials">

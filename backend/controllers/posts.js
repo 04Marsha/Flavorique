@@ -2,7 +2,6 @@ const Post = require("../models/post");
 
 exports.createPost = async (req, res, next) => {
   try {
-    console.log("FILE: ", req.file);
     const imagePath = req.file ? req.file.path : null;
 
     const post = new Post({
@@ -59,19 +58,31 @@ exports.updatePost = async (req, res) => {
   }
 };
 
-exports.getPosts = (req, res, next) => {
-  Post.find()
-    .then((documents) => {
-      res.status(200).json({
-        message: "Posts fetched successfully",
-        posts: documents,
-      });
-    })
-    .catch((error) => {
-      res.status(500).json({
-        message: "Fetching posts failed!",
-      });
+exports.getPosts = async (req, res, next) => {
+  const pageSize = +req.query.pageSize;
+  const currentPage = +req.query.page;
+
+  let postQuery = Post.find();
+  let fetchedPosts;
+
+  if (pageSize && currentPage) {
+    postQuery = postQuery.skip(pageSize * (currentPage - 1)).limit(pageSize);
+  }
+
+  try {
+    fetchedPosts = await postQuery;
+    const count = await Post.countDocuments();
+
+    res.status(200).json({
+      message: "Posts fetched successfully",
+      posts: fetchedPosts,
+      maxPosts: count,
     });
+  } catch (error) {
+    res.status(500).json({
+      message: "Fetching posts failed!",
+    });
+  }
 };
 
 exports.getPost = (req, res, next) => {

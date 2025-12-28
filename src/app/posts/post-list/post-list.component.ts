@@ -10,6 +10,7 @@ import { AuthService } from '../../auth/auth.service';
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css'],
 })
+
 export class PostListComponent implements OnInit, OnDestroy {
   posts: Post[] = [];
   isLoading = false;
@@ -19,6 +20,9 @@ export class PostListComponent implements OnInit, OnDestroy {
   private authStatusSub: Subscription;
   userId: string;
   selectedPost: Post | null = null;
+  totalPosts = 0;
+  postsPerPage = 8;
+  currentPage = 1;
 
   constructor(
     public postsService: PostsService,
@@ -26,14 +30,15 @@ export class PostListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.postsService.getPosts();
+    this.postsService.getPosts(this.postsPerPage, this.currentPage);
     this.isLoading = true;
     this.userId = this.authService.getUserId();
     this.postsSub = this.postsService
       .getPostUpdateListener()
-      .subscribe((posts: Post[]) => {
+      .subscribe((postData) => {
         this.isLoading = false;
-        this.posts = posts;
+        this.posts = postData.posts;
+        this.totalPosts = postData.postCount;
       });
     this.userIsAuthenticated = this.authService.getIsAuth();
     this.authStatusSub = this.authService
@@ -77,5 +82,11 @@ export class PostListComponent implements OnInit, OnDestroy {
       return path.replace('http://', 'https://');
     }
     return path;
+  }
+
+  onPageChange(page: number) {
+    this.currentPage = page;
+    this.isLoading = true;
+    this.postsService.getPosts(this.postsPerPage, this.currentPage);
   }
 }

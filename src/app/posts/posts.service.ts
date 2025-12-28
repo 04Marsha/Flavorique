@@ -11,31 +11,43 @@ const BACKEND_URL = environment.apiUrl + '/posts/';
 @Injectable({ providedIn: 'root' })
 export class PostsService {
   private posts: Post[] = [];
-  private postsUpdated = new Subject<Post[]>();
+  private postsUpdated = new Subject<{ posts: Post[]; postCount: number }>();
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  getPosts() {
+  getPosts(postsPerPage?: number, currentPage?: number) {
+    let queryParams = '';
+
+    if (postsPerPage && currentPage) {
+      queryParams = `?pageSize=${postsPerPage}&page=${currentPage}`;
+    }
     this.http
-      .get<{ message: string; posts: any }>(BACKEND_URL)
+      .get<{ message: string; posts: any; maxPosts: number }>(
+        BACKEND_URL + queryParams
+      )
       .pipe(
         map((postData) => {
-          return postData.posts.map((post: any) => {
-            return {
-              recipeName: post.recipeName,
-              yourName: post.yourName,
-              recipe: post.recipe,
-              id: post._id,
-              imagePath: post.imagePath,
-              creator: post.creator,
-            };
-          });
+          return {
+            posts: postData.posts.map((post) => {
+              return {
+                recipeName: post.recipeName,
+                yourName: post.yourName,
+                recipe: post.recipe,
+                id: post._id,
+                imagePath: post.imagePath,
+                creator: post.creator,
+              };
+            }),
+            postCount: postData.maxPosts,
+          };
         })
       )
-      .subscribe((transformedPosts) => {
-        console.log(transformedPosts);
-        this.posts = transformedPosts;
-        this.postsUpdated.next([...this.posts]);
+      .subscribe((transformedData) => {
+        this.posts = transformedData.posts;
+        this.postsUpdated.next({
+          posts: [...this.posts],
+          postCount: transformedData.postCount,
+        });
       });
   }
 
@@ -99,9 +111,12 @@ export class PostsService {
 
   deletePost(postId: string) {
     this.http.delete(BACKEND_URL + postId).subscribe(() => {
-      const updatedPosts = this.posts.filter((post) => post.id !== postId);
-      this.posts = updatedPosts;
-      this.postsUpdated.next([...this.posts]);
+      this.posts = this.posts.filter((post) => post.id !== postId);
+
+      this.postsUpdated.next({
+        posts: [...this.posts],
+        postCount: this.posts.length,
+      });
     });
   }
 }

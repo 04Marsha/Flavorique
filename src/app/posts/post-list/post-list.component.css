@@ -60,7 +60,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -84,14 +83,14 @@ h3 {
 }
 
 .recipe-card h2 {
-  font-family: Glegoo;
+  font-family: "Glegoo";
   font-size: 28px;
   font-weight: 700;
   text-align: center;
 }
 
 .recipe-card h3 {
-  font-family: Glegoo;
+  font-family: "Glegoo";
   font-size: 22px;
   font-weight: 400;
   text-align: center;
@@ -127,6 +126,14 @@ h3 {
 #delete-button:hover {
   background-color: rgb(168, 43, 43);
   transform: scale(1.08);
+}
+
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto 80px;
+  width: 100%;
 }
 
 @media (max-width: 1300px) {
