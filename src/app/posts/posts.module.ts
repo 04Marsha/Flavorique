@@ -8,9 +8,10 @@ import { PostListComponent } from './post-list/post-list.component';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { PostDisplayComponent } from './post-display/post-display.component';
 import { UtilityModule } from '../utility/utility.module';
+import { FooterComponent } from '../footer/footer.component';
 
 @NgModule({
-  declarations: [PostListComponent, PostCreateComponent, PostDisplayComponent],
+  declarations: [PostListComponent, PostCreateComponent, PostDisplayComponent, FooterComponent],
   imports: [
     CommonModule,
     RouterModule,

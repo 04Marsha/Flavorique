@@ -34,6 +34,10 @@
     (pageChange)="onPageChange($event)"></app-paginator>
 </div>
 
+<div class="footer">
+  <app-footer />
+</div>
+
 <p routerLink="/" id="empty" *ngIf="posts.length <= 0 && !isLoading">
   No Recipes to display..
 </p>

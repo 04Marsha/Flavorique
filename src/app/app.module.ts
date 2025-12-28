@@ -14,7 +14,11 @@ import { PostsModule } from './posts/posts.module';
 import { UtilityModule } from './utility/utility.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ErrorComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    ErrorComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,7 +26,7 @@ import { UtilityModule } from './utility/utility.module';
     HttpClientModule,
     AngularMaterialModule,
     PostsModule,
-    UtilityModule
+    UtilityModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
